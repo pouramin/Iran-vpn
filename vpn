@@ -1,0 +1,53 @@
+#IRAN SECTION
+
+apt-get update -y && apt-get upgrade -y
+
+sysctl net.ipv4.ip_forward=1
+iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination IRan-Ip
+iptables -t nat -A PREROUTING -j DNAT --to-destination EU-Ip
+iptables -t nat -A POSTROUTING -j MASQUERADE
+
+-----
+
+درصورتی که بعد از ران کردن کد آی پی تیبل ارور  داشتید این کد رو ران کنید
+
+sudo apt install iptables
+
+------
+
+درصورتی که افت سرعت داشتید یا قطعی مکرر داشتید این کد رو ران کنید
+
+wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
+
+
+===========================================================================================================================
+
+
+EU SECTION
+
+
+apt-get update -y && apt-get upgrade -y
+
+apt install curl -y
+
+bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+
+-------------
+
+آدرس پنل مدیریت
+
+EU_IP:54321
+
+-------------
+
+درصورتی که افت سرعت داشتید یا قطعی مکرر داشتید این کد رو ران کنید
+
+wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
+
+
+===========================================================================================================================
+
+
+ROOT ACCESS
+
+sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && sudo systemctl restart ssh && sudo passwd

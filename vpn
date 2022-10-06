@@ -1,12 +1,21 @@
 تونل زدن بین دوتا وی پی اس، ایرانی و اروپایی برای دور زدن نت ملی.
+لینک ویدیو :
+
+
 احتیاج به دوتا سرور داریم، یکی ایران و یکی اروپا، برای خرید سرور اروپایی میتونید از لینک زیر استفاده کنید، توی ورود بهتون 200 دلار اعتبار میده.
 https://m.do.co/c/0fb522deafa4
+
+برای خرید سرور ایرانی، میتونید از این لینک استفاده کنید؛
+https://berbidserver.com/portal/aff.php?aff=53
 
 روی سرور اروپایی وی پی ان رو ست میکنیم و روی سرور ایرانی آی پی فورواردینگ.
 
 #IRAN SECTION
 
 apt-get update -y && apt-get upgrade -y
+اگه به کد بالا مشکل داشتید و ارور گرفتید کد زیر رو ران کنید؛
+apt update && apt upgrade -y
+
 
 sysctl net.ipv4.ip_forward=1
 iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination IRAN-IP
